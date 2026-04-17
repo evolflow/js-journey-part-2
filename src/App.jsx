@@ -1,45 +1,24 @@
 import { useState } from "react";
-import WorkoutForm from "./components/WorkoutForm.jsx";
-import WorkoutList from "./components/WorkoutList.jsx";
+import DisciplineForm from "./components/DisciplineForm.jsx";
+import DisciplineList from "./components/DisciplineList.jsx";
+import "./App.css";
 
 function App() {
-  const [workouts, setWorkouts] = useState([]);
-  const [filter, setFilter] = useState("all");
-  const [search, setSearch] = useState("");
+  const [tasks, setTasks] = useState([]);
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Workout Tracker 💪</h1>
+    <div className="app">
+      <div className="tracker-card">
+        <h1>Discipline Tracker 🔥</h1>
 
-      {/* 🔍search */}
-      <input
-        placeholder="Search..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        style={{ marginBottom: "20px", padding: "10px" }}
-      />
+        <DisciplineForm tasks={tasks} setTasks={setTasks} />
 
-      {/* 🔘filter */}
-      <div style={{ marginBottom: "20px" }}>
-        <button onClick={() => setFilter("all")}>All</button>
-        <button onClick={() => setFilter("done")}>Done</button>
-        <button onClick={() => setFilter("active")}>Active</button>
+        <p className="task-count">Tasks: {tasks.length}</p>
+
+        <DisciplineList tasks={tasks} setTasks={setTasks} />
       </div>
-
-      {/*🔢 counter */}
-      <p>Workouts: {workouts.length}</p>
-
-      {/* ➕ form */}
-      <WorkoutForm workouts={workouts} setWorkouts={setWorkouts} />
-
-      {/* List */}
-      <WorkoutList
-        workouts={workouts}
-        setWorkouts={setWorkouts}
-        filter={filter}
-        search={search}
-      />
     </div>
   );
 }
+
 export default App;
