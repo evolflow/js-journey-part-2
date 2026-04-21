@@ -22,3 +22,49 @@ Built a Discipline Tracker app in React.
 - localStorage
 - edit task
 - filters
+
+# Coding Session 25
+
+Built a Discipline Tracker app in React and improved it step by step.
+
+## Features
+
+- Add new tasks
+- Show tasks count
+- Mark tasks as completed
+- Delete tasks
+- Clear all tasks
+- Save tasks in localStorage after refresh
+
+## Practice
+
+- useState
+- useEffect
+- props
+- controlled input
+- map()
+- filter()
+- localStorage
+- JSON.stringify()
+- JSON.parse()
+
+## Project Structure
+
+- src/App.jsx
+- src/App.css
+- src/components/DisciplineForm.jsx
+- src/components/DisciplineList.jsx
+
+## What I learned
+
+- How React state controls the UI
+- How to pass data with props
+- How to update arrays immutably
+- How to save data in browser storage
+- How to load saved tasks after refresh
+
+## Next
+
+- Filters: All / Active / Done
+- Edit task
+- Better buttons and layout

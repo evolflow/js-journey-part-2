@@ -16,7 +16,7 @@ function DisciplineForm({ tasks, setTasks }) {
   }
 
   return (
-    <div>
+    <div className="form-box">
       <input
         type="text"
         placeholder="Enter discipline..."
