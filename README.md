@@ -68,3 +68,47 @@ Built a Discipline Tracker app in React and improved it step by step.
 - Filters: All / Active / Done
 - Edit task
 - Better buttons and layout
+
+# Coding Session 26
+
+Discipline Tracker built with React.
+
+## Features
+
+- Add tasks
+- Mark tasks as completed
+- Delete tasks
+- Clear all tasks
+- Save tasks with localStorage
+- Filter tasks: All / Active / Done
+- Active filter button highlight
+
+## Tech
+
+- React
+- JavaScript
+- CSS
+
+## What I practiced
+
+- useState
+- useEffect
+- props
+- map()
+- filter()
+- conditional rendering
+- dynamic className
+- localStorage (JSON.stringify / JSON.parse)
+
+## Project Structure
+
+- src/App.jsx
+- src/App.css
+- src/components/DisciplineForm.jsx
+- src/components/DisciplineList.jsx
+
+## Next Steps
+
+- Edit task
+- Better UI
+- Dark mode
