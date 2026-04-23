@@ -112,3 +112,26 @@ Discipline Tracker built with React.
 - Edit task
 - Better UI
 - Dark mode
+
+# Coding Session 27
+
+Discipline Tracker built with React.
+
+## Features
+
+- Add tasks
+- Mark tasks as completed
+- Delete tasks
+- Clear all tasks
+- Clear completed tasks
+- Save tasks with localStorage
+- Filter tasks: All / Active / Done
+- Active filter button highlight
+- Edit task
+- Progress bar
+
+## Tech
+
+- React
+- JavaScript
+- CSS

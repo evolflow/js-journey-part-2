@@ -21,6 +21,10 @@ function App() {
     return true;
   });
 
+  const doneCount = tasks.filter((task) => task.done).length;
+  const progressPercent =
+    tasks.length === 0 ? 0 : (doneCount / tasks.length) * 100;
+
   return (
     <div className="app">
       <div className="tracker-card">
@@ -29,6 +33,16 @@ function App() {
         <DisciplineForm tasks={tasks} setTasks={setTasks} />
 
         <p className="task-count">Tasks: {tasks.length}</p>
+        <p className="task-count">
+          Done: {doneCount} / {tasks.length}
+        </p>
+
+        <div className="progress-bar">
+          <div
+            className="progress-fill"
+            style={{ width: `${progressPercent}%` }}
+          ></div>
+        </div>
 
         <button
           onClick={() => setTasks([])}
@@ -36,6 +50,17 @@ function App() {
         >
           Clear All
         </button>
+
+        {tasks.some((task) => task.done) && (
+          <button
+            onClick={() => {
+              const newTasks = tasks.filter((task) => !task.done);
+              setTasks(newTasks);
+            }}
+          >
+            Clear Completed
+          </button>
+        )}
 
         <div className="filter-buttons">
           <button
