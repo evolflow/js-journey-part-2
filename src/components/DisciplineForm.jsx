@@ -7,6 +7,7 @@ function DisciplineForm({ tasks, setTasks }) {
     if (input.trim() === "") return;
 
     const newTask = {
+      id: Date.now(),
       text: input,
       done: false,
     };
@@ -22,6 +23,11 @@ function DisciplineForm({ tasks, setTasks }) {
         placeholder="Enter discipline..."
         value={input}
         onChange={(event) => setInput(event.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleAddTask();
+          }
+        }}
       />
 
       <button onClick={handleAddTask}>Add</button>

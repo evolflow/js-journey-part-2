@@ -135,3 +135,13 @@ Discipline Tracker built with React.
 - React
 - JavaScript
 - CSS
+
+## Coding Session 28
+
+- Refactored app to use unique id instead of index
+- Fixed editing and deleting logic (stable updates)
+- Added Enter key to create tasks
+- Added Enter + Escape behavior for editing
+- Prevented empty tasks and empty edits
+- Added empty state message when no tasks
+- Improved overall UX and code stability
