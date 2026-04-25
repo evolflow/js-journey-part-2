@@ -47,7 +47,7 @@ h1 {
   gap: 10px;
 }
 
-/* INPUT */
+/* MAIN INPUT (ADD TASK) */
 input[type="text"] {
   flex: 1;
   padding: 12px;
@@ -106,10 +106,11 @@ button:active {
   background: #f3f4f6;
 }
 
-/* LEFT SIDE (checkbox + text) */
+/* LEFT SIDE */
 .task-left {
   display: flex;
   align-items: center;
+  flex: 1;
 }
 
 /* TEXT */
@@ -136,6 +137,7 @@ button:active {
   transform: scale(1.2);
 }
 
+/* FILTER */
 .filter-buttons {
   display: flex;
   gap: 10px;
@@ -147,15 +149,10 @@ button:active {
   background: #e5e7eb;
   color: #111827;
   padding: 10px 14px;
-  border: none;
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.filter-btn:hover {
-  transform: translateY(-1px);
+  border: none;
 }
 
 .active-filter {
@@ -163,6 +160,7 @@ button:active {
   color: white;
 }
 
+/* PROGRESS BAR */
 .progress-bar {
   width: 100%;
   height: 12px;
@@ -176,6 +174,38 @@ button:active {
 .progress-fill {
   height: 100%;
   background: linear-gradient(135deg, #22c55e, #16a34a);
-  border-radius: 999px;
   transition: width 0.3s ease;
+}
+
+/* EMPTY */
+.empty-state {
+  margin-top: 20px;
+  text-align: center;
+  color: #6b7280;
+  font-weight: 600;
+  background: #f9fafb;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+/* 🔥 EDIT MODE */
+.edit-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 2px solid #2563eb;
+  outline: none;
+  font-weight: 600;
+}
+
+.edit-input:focus {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }

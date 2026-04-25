@@ -25,11 +25,35 @@ function DisciplineList({ tasks, setTasks }) {
             />
 
             {editingId === task.id ? (
-              <input
-                value={editText}
-                onChange={(e) => setEditText(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
+              <div className="edit-row">
+                <input
+                  type="text"
+                  autoFocus
+                  className="edit-input"
+                  value={editText}
+                  onChange={(e) => setEditText(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      if (editText.trim() === "") return;
+
+                      const newTasks = tasks.map((item) =>
+                        item.id === task.id
+                          ? { ...item, text: editText }
+                          : item,
+                      );
+
+                      setTasks(newTasks);
+                      setEditingId(null);
+                    }
+
+                    if (e.key === "Escape") {
+                      setEditingId(null);
+                    }
+                  }}
+                />
+
+                <button
+                  onClick={() => {
                     if (editText.trim() === "") return;
 
                     const newTasks = tasks.map((item) =>
@@ -38,13 +62,11 @@ function DisciplineList({ tasks, setTasks }) {
 
                     setTasks(newTasks);
                     setEditingId(null);
-                  }
-
-                  if (e.key === "Escape") {
-                    setEditingId(null);
-                  }
-                }}
-              />
+                  }}
+                >
+                  💾
+                </button>
+              </div>
             ) : (
               <span className={`task-text ${task.done ? "done" : ""}`}>
                 {task.text}
@@ -52,32 +74,19 @@ function DisciplineList({ tasks, setTasks }) {
             )}
           </div>
 
-          <button
-            onClick={() => {
-              setEditingId(task.id);
-              setEditText(task.text);
-            }}
-          >
-            ✏️
-          </button>
-
-          {editingId === task.id && (
+          {/* EDIT BUTTON */}
+          {editingId !== task.id && (
             <button
               onClick={() => {
-                if (editText.trim() === "") return;
-
-                const newTasks = tasks.map((item) =>
-                  item.id === task.id ? { ...item, text: editText } : item,
-                );
-
-                setTasks(newTasks);
-                setEditingId(null);
+                setEditingId(task.id);
+                setEditText(task.text);
               }}
             >
-              💾
+              ✏️
             </button>
           )}
 
+          {/* DELETE BUTTON */}
           <button
             className="delete-btn"
             onClick={() => {

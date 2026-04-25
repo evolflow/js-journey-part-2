@@ -145,3 +145,12 @@ Discipline Tracker built with React.
 - Prevented empty tasks and empty edits
 - Added empty state message when no tasks
 - Improved overall UX and code stability
+
+## Coding Session 29
+
+- Improved edit UX with full-width input
+- Added edit mode layout (input + save button)
+- Added Enter (save) and Escape (cancel) controls
+- Enhanced input styling and readability
+- Fixed layout issues with flex and input width
+- Improved overall UI to look like real product
