@@ -70,11 +70,11 @@ function DisciplineList({ tasks, setTasks }) {
             ) : (
               <span className={`task-text ${task.done ? "done" : ""}`}>
                 {task.text}
+                <span className="category-badge">{task.category}</span>
               </span>
             )}
           </div>
 
-          {/* EDIT BUTTON */}
           {editingId !== task.id && (
             <button
               onClick={() => {
@@ -86,7 +86,6 @@ function DisciplineList({ tasks, setTasks }) {
             </button>
           )}
 
-          {/* DELETE BUTTON */}
           <button
             className="delete-btn"
             onClick={() => {

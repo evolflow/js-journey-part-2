@@ -188,7 +188,25 @@ button:active {
   border-radius: 12px;
 }
 
-/* 🔥 EDIT MODE */
+select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #e5e7eb;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+}
+
+.category-badge {
+  margin-left: 8px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .edit-row {
   display: flex;
   gap: 10px;
