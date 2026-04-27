@@ -154,3 +154,23 @@ Discipline Tracker built with React.
 - Enhanced input styling and readability
 - Fixed layout issues with flex and input width
 - Improved overall UI to look like real product
+
+## Coding Session 30
+
+- Improved edit mode UI
+- Added full-width edit input
+- Added Enter to save edited task
+- Added Escape to cancel editing
+- Added empty state for no tasks
+- Started category feature for tasks
+- Continued improving React component structure
+
+## Coding Session 31
+
+- Added task categories: Coding, Dance, Workout, Life
+- Added category select input
+- Displayed category badge inside each task
+- Added dynamic CSS classes for category colors
+- Fixed layout issue with input, select, and Add button
+- Improved React state structure with category data
+- Practiced debugging className and CSS selector issues

@@ -1,11 +1,22 @@
 import { useState } from "react";
 
-function DisciplineList({ tasks, setTasks }) {
+function DisciplineList({ tasks, allTasks, setTasks }) {
   const [editingId, setEditingId] = useState(null);
   const [editText, setEditText] = useState("");
 
   if (tasks.length === 0) {
     return <p className="empty-state">No tasks yet. Start your discipline.</p>;
+  }
+
+  function saveEdit(taskId) {
+    if (editText.trim() === "") return;
+
+    const newTasks = allTasks.map((item) =>
+      item.id === taskId ? { ...item, text: editText } : item,
+    );
+
+    setTasks(newTasks);
+    setEditingId(null);
   }
 
   return (
@@ -17,9 +28,10 @@ function DisciplineList({ tasks, setTasks }) {
               type="checkbox"
               checked={task.done}
               onChange={() => {
-                const newTasks = tasks.map((item) =>
+                const newTasks = allTasks.map((item) =>
                   item.id === task.id ? { ...item, done: !item.done } : item,
                 );
+
                 setTasks(newTasks);
               }}
             />
@@ -34,16 +46,7 @@ function DisciplineList({ tasks, setTasks }) {
                   onChange={(e) => setEditText(e.target.value)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
-                      if (editText.trim() === "") return;
-
-                      const newTasks = tasks.map((item) =>
-                        item.id === task.id
-                          ? { ...item, text: editText }
-                          : item,
-                      );
-
-                      setTasks(newTasks);
-                      setEditingId(null);
+                      saveEdit(task.id);
                     }
 
                     if (e.key === "Escape") {
@@ -52,25 +55,18 @@ function DisciplineList({ tasks, setTasks }) {
                   }}
                 />
 
-                <button
-                  onClick={() => {
-                    if (editText.trim() === "") return;
-
-                    const newTasks = tasks.map((item) =>
-                      item.id === task.id ? { ...item, text: editText } : item,
-                    );
-
-                    setTasks(newTasks);
-                    setEditingId(null);
-                  }}
-                >
-                  💾
-                </button>
+                <button onClick={() => saveEdit(task.id)}>💾</button>
               </div>
             ) : (
               <span className={`task-text ${task.done ? "done" : ""}`}>
                 {task.text}
-                <span className="category-badge">{task.category}</span>
+                <span
+                  className={`category-badge ${(task.category || "life")
+                    .trim()
+                    .toLowerCase()}`}
+                >
+                  {task.category || "Life"}
+                </span>
               </span>
             )}
           </div>
@@ -89,7 +85,7 @@ function DisciplineList({ tasks, setTasks }) {
           <button
             className="delete-btn"
             onClick={() => {
-              const newTasks = tasks.filter((item) => item.id !== task.id);
+              const newTasks = allTasks.filter((item) => item.id !== task.id);
               setTasks(newTasks);
             }}
           >

@@ -91,7 +91,11 @@ function App() {
           </button>
         </div>
 
-        <DisciplineList tasks={filteredTasks} setTasks={setTasks} />
+        <DisciplineList
+          tasks={filteredTasks}
+          allTasks={tasks}
+          setTasks={setTasks}
+        />
       </div>
     </div>
   );

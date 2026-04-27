@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function DisciplineForm({ tasks, setTasks }) {
   const [input, setInput] = useState("");
+  const [category, setCategory] = useState("Coding");
 
   function handleAddTask() {
     if (input.trim() === "") return;
@@ -10,6 +11,7 @@ function DisciplineForm({ tasks, setTasks }) {
       id: Date.now(),
       text: input,
       done: false,
+      category: category,
     };
 
     setTasks([...tasks, newTask]);
@@ -22,13 +24,20 @@ function DisciplineForm({ tasks, setTasks }) {
         type="text"
         placeholder="Enter discipline..."
         value={input}
-        onChange={(event) => setInput(event.target.value)}
+        onChange={(e) => setInput(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             handleAddTask();
           }
         }}
       />
+
+      <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <option value="Coding">Coding</option>
+        <option value="Dance">Dance</option>
+        <option value="Workout">Workout</option>
+        <option value="Life">Life</option>
+      </select>
 
       <button onClick={handleAddTask}>Add</button>
     </div>

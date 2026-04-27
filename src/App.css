@@ -45,6 +45,7 @@ h1 {
 .form-box {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 /* MAIN INPUT (ADD TASK) */
@@ -226,4 +227,55 @@ select {
 
 .edit-input:focus {
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.category-badge {
+  margin-left: 8px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.form-box input {
+  flex: 1 1 100%;
+}
+
+.form-box select {
+  flex: 1;
+}
+
+.form-box button {
+  flex: 1;
+}
+
+.category-badge {
+  margin-left: 8px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* COLORS */
+.category-badge.coding {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.category-badge.dance {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+.category-badge.workout {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.category-badge.life {
+  background: #e5e7eb;
+  color: #374151;
 }
