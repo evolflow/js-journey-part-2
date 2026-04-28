@@ -24,6 +24,11 @@ function App() {
   const doneCount = tasks.filter((task) => task.done).length;
   const progressPercent =
     tasks.length === 0 ? 0 : (doneCount / tasks.length) * 100;
+  const categoryCount = tasks.reduce((acc, task) => {
+    const cat = task.category || "Life";
+    acc[cat] = (acc[cat] || 0) + 1;
+    return acc;
+  }, {});
 
   return (
     <div className="app">
@@ -42,6 +47,18 @@ function App() {
             className="progress-fill"
             style={{ width: `${progressPercent}%` }}
           ></div>
+        </div>
+
+        <div className="category-stats">
+          {Object.entries(categoryCount).map(([cat, count]) => (
+            <p key={cat}>
+              {cat === "Coding" && "💻 "}
+              {cat === "Dance" && "🕺 "}
+              {cat === "Workout" && "🏋️ "}
+              {cat === "Life" && "🌱 "}
+              {cat}: {count}
+            </p>
+          ))}
         </div>
 
         <button
