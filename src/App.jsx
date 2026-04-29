@@ -10,14 +10,21 @@ function App() {
   });
 
   const [filter, setFilter] = useState("all");
+  const [categoryFilter, setCategoryFilter] = useState("all");
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
   const filteredTasks = tasks.filter((task) => {
-    if (filter === "active") return !task.done;
-    if (filter === "done") return task.done;
+    // status filter
+    if (filter === "active" && task.done) return false;
+    if (filter === "done" && !task.done) return false;
+
+    // category filter
+    if (categoryFilter !== "all" && task.category !== categoryFilter)
+      return false;
+
     return true;
   });
 
@@ -105,6 +112,53 @@ function App() {
             onClick={() => setFilter("done")}
           >
             Done
+          </button>
+        </div>
+
+        <div className="filter-buttons">
+          <button
+            className={
+              categoryFilter === "all"
+                ? "filter-btn-active-filter"
+                : "filter-btn"
+            }
+            onClick={() => setCategoryFilter("all")}
+          >
+            All
+          </button>
+
+          <button
+            className={
+              categoryFilter === "Coding"
+                ? "filter-btn active filter"
+                : "filter-btn"
+            }
+            onClick={() => setCategoryFilter("Coding")}
+          >
+            💻 Coding
+          </button>
+
+          <button
+            className={
+              categoryFilter === "Dance"
+                ? "filter-btn active-filter"
+                : "filter-btn"
+            }
+            onClick={() => setCategoryFilter("Workout")}
+          >
+            🏋️ Workout
+          </button>
+
+          <button
+            className={
+              categoryFilter === "life"
+                ? "filter-btn active-filter"
+                : "filtet-btn"
+            }
+            onClick={() => setCategoryFilter("Life")}
+          >
+            {" "}
+            🌱 Life
           </button>
         </div>
 
