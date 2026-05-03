@@ -9,12 +9,27 @@ function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
-  const [filter, setFilter] = useState("all");
-  const [categoryFilter, setCategoryFilter] = useState("all");
+  const [filter, setFilter] = useState(() => {
+    const savedFilter = localStorage.getItem("filter");
+    return savedFilter || "all";
+  });
+
+  const [categoryFilter, setCategoryFilter] = useState(() => {
+    const savedCategoryFilter = localStorage.getItem("categoryFilter");
+    return savedCategoryFilter || "all";
+  });
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
+
+  useEffect(() => {
+    localStorage.setItem("filter", filter);
+  }, [filter]);
+
+  useEffect(() => {
+    localStorage.setItem("categoryFilter", categoryFilter);
+  }, [categoryFilter]);
 
   const filteredTasks = tasks.filter((task) => {
     // status filter
@@ -119,7 +134,7 @@ function App() {
           <button
             className={
               categoryFilter === "all"
-                ? "filter-btn-active-filter"
+                ? "filter-btn active-filter"
                 : "filter-btn"
             }
             onClick={() => setCategoryFilter("all")}
@@ -130,7 +145,7 @@ function App() {
           <button
             className={
               categoryFilter === "Coding"
-                ? "filter-btn active filter"
+                ? "filter-btn active-filter"
                 : "filter-btn"
             }
             onClick={() => setCategoryFilter("Coding")}
@@ -144,6 +159,17 @@ function App() {
                 ? "filter-btn active-filter"
                 : "filter-btn"
             }
+            onClick={() => setCategoryFilter("Dance")}
+          >
+            🕺 Dance
+          </button>
+
+          <button
+            className={
+              categoryFilter === "Workout"
+                ? "filter-btn active-filter"
+                : "filter-btn"
+            }
             onClick={() => setCategoryFilter("Workout")}
           >
             🏋️ Workout
@@ -151,13 +177,12 @@ function App() {
 
           <button
             className={
-              categoryFilter === "life"
+              categoryFilter === "Life"
                 ? "filter-btn active-filter"
-                : "filtet-btn"
+                : "filter-btn"
             }
             onClick={() => setCategoryFilter("Life")}
           >
-            {" "}
             🌱 Life
           </button>
         </div>

@@ -174,3 +174,31 @@ Discipline Tracker built with React.
 - Fixed layout issue with input, select, and Add button
 - Improved React state structure with category data
 - Practiced debugging className and CSS selector issues
+
+## Coding Session 32
+
+- Added category count system using reduce()
+- Displayed category statistics on UI
+- Added emoji for each category
+- Practiced Object.entries() and dynamic rendering
+- Improved understanding of objects and arrays in React
+- Strengthened debugging and UI thinking
+
+## Coding Session 33
+
+- Added category filter system
+- Added filter state for categories
+- Combined status filters with category filters
+- Added category filter buttons: Coding, Dance, Workout, Life
+- Practiced filter(), conditions, and React state updates
+- Improved app functionality toward a real portfolio project
+
+## Coding Session 34
+
+- Added localStorage persistence for status filter
+- Added localStorage persistence for category filter
+- Restored saved filters after page reload
+- Fixed localStorage saving for tasks
+- Practiced useEffect with dependency arrays
+- Practiced JSON.stringify() and JSON.parse()
+- Improved app persistence like a real product
